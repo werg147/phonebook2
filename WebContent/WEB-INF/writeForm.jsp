@@ -22,12 +22,12 @@
 		이름(name): <input type="text" name="name" value=""> <br>
 		핸드폰(hp): <input type="text" name="hp" value=""> <br>
 		회사(company): <input type="text" name="company" value=""> <br>
-		action: <input type="text" name="action" value="insert"> <br>
+		<input type="hidden" name="action" value="insert"> <br>
 		<button type="submit">등록</button>
 	</form>
 
 	<br>
-	<a href="">리스트 바로가기</a>
+	<a href="/phonebook2/pbc?action=list">리스트 바로가기</a>
 
 </body>
 </html>

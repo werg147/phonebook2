@@ -40,11 +40,16 @@
 				<td>회사(company)</td>
 				<td><%=personList.get(i).getCompany() %></td>
 			</tr>
+			<tr>
+				<td><a href="/phonebook2/pbc?action=upform&personId=<%=personList.get(i).getPersonId()%>">수정</a></td>
+				<td><a href="/phonebook2/pbc?action=delete&personId=<%=personList.get(i).getPersonId()%>">삭제</a>
+				<!-- !!!!id값 넘기는걸 깜빡했었다..(컨트롤러 오류창에 값이 null로 뜸/값을 보내는 페이지에서 문제있던것) 주의할것 !!!!-->
+			</tr>
 		</table>
 		<br>
 	<%} %>
 	
-	<a href="">추가번호 등록</a>
+	<a href="/phonebook2/pbc?action=wform">추가번호 등록</a>
 
 
 </body>

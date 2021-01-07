@@ -133,7 +133,7 @@ public class PhoneDao {
 	}
 
 	// 삭제
-	public int personDelete(int personId) {
+	public int personDelete(int personId) { 
 
 		getConnection();
 
@@ -144,17 +144,16 @@ public class PhoneDao {
 			String query = "";
 			query += " delete from phonedb ";
 			query += " where person_id = ? ";
-
-			// 테스트
-			System.out.println(query);
-
+			
+			//쿼리로 만든다
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, personId);
-
+			
+			//쿼리문 실행
 			count = pstmt.executeUpdate();
 
 			// 4.결과처리
-			System.out.println("[dao]" + count + "건 삭제");
+			//System.out.println("[dao]" + count + "건 삭제");
 
 		} catch (SQLException e) {
 			System.out.println("error:" + e);

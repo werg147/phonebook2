@@ -67,6 +67,49 @@ public class PhoneController extends HttpServlet {
 			
 			response.sendRedirect("/phonebook2/pbc?action=list");
 			
+		} else if("delete".equals(action)) {
+			System.out.println("삭제");
+			
+			//아이디 파라미터값
+			int personId = Integer.parseInt(request.getParameter("personId"));
+			
+			//phoneDao의 delete메소드에 id 담기
+			PhoneDao phoneDao = new PhoneDao();
+			phoneDao.personDelete(personId);
+			
+			response.sendRedirect("/phonebook2/pbc?action=list");
+			
+		} else if("upform".equals(action)) {
+			System.out.println("수정폼");
+			
+			//id를 주면 id에 해당하는 person정보를 가져온다.
+			//아이디 파라미터 int형으로 담기
+			int personId = Integer.parseInt(request.getParameter("personId"));
+
+			PhoneDao phoneDao = new PhoneDao();
+			PersonVo personVo = phoneDao.getPerson(personId);
+			
+			//데이터 전달
+			request.setAttribute("personVO", personVo);
+			
+			//jsp에 포워드
+			RequestDispatcher rd = request.getRequestDispatcher("./WEB-INF/updateForm.jsp");
+			rd.forward(request, response);
+			
+		} else if("update".equals(action)) {
+			System.out.println("수정");
+			
+			String name = request.getParameter("name");
+			String hp = request.getParameter("hp");
+			String company = request.getParameter("company");
+			int personId = Integer.parseInt(request.getParameter("personId"));
+			
+			PersonVo personVo = new PersonVo(personId, name, hp, company);
+			
+			PhoneDao phoneDao = new PhoneDao();
+			phoneDao.personUpdate(personVo);
+			
+			response.sendRedirect("/phonebook2/pbc?action=list");
 		}
 		
 			
