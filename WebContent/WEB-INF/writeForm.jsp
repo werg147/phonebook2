@@ -27,7 +27,7 @@
 	</form>
 
 	<br>
-	<a href="/phonebook2/pbc?action=list">리스트 바로가기</a>
+	<a href="/phonebook2/pbc">리스트 바로가기</a>
 
 </body>
 </html>
